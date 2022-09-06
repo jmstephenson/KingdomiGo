@@ -1,0 +1,66 @@
+
+.flex-container-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.flex-container-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.tablespace {
+    background-image: url("images/seamless-wood.jpg");
+}
+
+.placeholder {
+    background-color: var(--placeholder-fill-grey);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: .2em solid var(--placeholder-border-grey);
+}   
+
+.tilespace {
+
+}
+
+.tilespace div {
+    margin: 5px;
+    height: 140px;
+    width: 70px;
+}
+
+.deckrow {
+    
+}
+
+.deckrow div {
+    margin: 5px;
+    height: 140px;
+    width: 70px;
+}
+
+.playerboards {
+
+}
+
+.playerboards div {
+    margin: 5px;
+
+    width: 250px;
+    height: 250px;
+}
+
+.playerspace {
+    flex-wrap: wrap;
+    width: 400px;
+    margin: 30px;
+}
+
+.playerspace div {
+    /* margin: 5px; */
+    height: 70px;
+    width: 70px;
+}
