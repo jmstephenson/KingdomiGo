@@ -2,6 +2,7 @@ package kingdomino
 
 import (
 	"math/rand"
+	"sort"
 	"time"
 )
 
@@ -92,6 +93,12 @@ func NewDeck() *Deck {
 	return deck
 }
 
+func NewDeckSelection(dominos []*Domino) *Deck {
+	d := new(Deck)
+	d.Dominos = dominos
+
+}
+
 func (d *Deck) ShuffleDeck() {
 	s1 := rand.NewSource(time.Now().UnixNano())
 	r1 := rand.New(s1)
@@ -101,13 +108,25 @@ func (d *Deck) ShuffleDeck() {
 	for len(d.Dominos) > 0 {
 		position := r1.Intn(len(d.Dominos))
 		domino := d.Dominos[position]
-		d.Dominos = remove(d.Dominos, position)
+		_ = d.DrawDomino(position)
 		shuffled[TOTAL_TILES-1-len(d.Dominos)] = domino
 	}
 
 	d.Dominos = shuffled
 }
 
-func remove(deck []*Domino, pos int) []*Domino {
-	return append(deck[:pos], deck[pos+1:]...)
+func (d *Deck) DrawDomino(pos int) *Domino {
+	drawnTile := d.Dominos[pos]
+	d.Dominos = append(d.Dominos[:pos], d.Dominos[pos+1:]...)
+	return drawnTile
+}
+
+func (d *Deck) SortByValue(deck []*Domino) []*Domino {
+	sort.Slice(d, func(i, j int) bool {
+		return d.Dominos[i].Value < d.Dominos[j].Value
+	})
+}
+
+func (d *Deck) TopCard() *Domino {
+	return d.Dominos[0]
 }

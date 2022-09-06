@@ -56,4 +56,5 @@ func keyDown(this js.Value, args []js.Value) interface{} {
 
 func gameLoop(this js.Value, args []js.Value) interface{} {
 
+	return nil
 }

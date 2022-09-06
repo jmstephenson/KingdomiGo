@@ -11,7 +11,7 @@
 }
 
 .tablespace {
-    background-image: url("images/seamless-wood.jpg");
+    background-image: url("../assets/seamless-wood.jpg");
 }
 
 .placeholder {
@@ -24,6 +24,46 @@
 
 .tilespace {
 
+}
+
+.portrait_tile {
+    position: relative;
+    overflow: hidden;
+}
+
+.landscape_tile {
+    position: relative;
+    overflow: hidden;
+}
+
+ .tile_back {
+    
+}
+
+.tile_back.portrait_tile::before {
+    content: "";
+    position: absolute;
+    overflow: hidden;
+    width: 200%;
+    height: 100%;
+    transform: rotate(-90deg);
+    background: url("../assets/kingdomino_tile_backs.webp") -34px -22px;
+    background-size: 690%;
+}
+
+.tile_face {
+
+} 
+
+.tile_face.portrait_tile::before {
+    content: "";
+    position: absolute;
+    overflow: hidden;
+    width: 200%;
+    height: 100%;
+    transform: rotate(-90deg);
+    background: url("../assets/kingdomino_tile_faces.webp") -25px -26px;
+    background-size: 690%;
 }
 
 .tilespace div {

@@ -24,7 +24,9 @@ type Game struct {
 	ActivePlayer    *Player
 	PlayerTurnCount int
 
-	TileDeck *kd.Deck
+	TileDeck      *kd.Deck
+	DrawnTiles    *kd.Deck
+	RevealedTiles *kd.Deck
 
 	Phase GamePhase
 }
@@ -70,8 +72,21 @@ func (g *Game) InitGame() {
 	g.PlayerTurnCount = 0
 
 	g.RandomisePlayerOrder()
-	g.SetActivePlayer()
+	g.NextPlayer()
+}
 
+func (g *Game) RevealTiles() {
+	g.RevealedTiles = nil
+	for i := 0; i < g.PlayerCount; i++ {
+		g.RevealedTiles.Dominos = append(g.RevealedTiles.Dominos, g.DrawnTiles.DrawDomino(0))
+	}
+}
+
+func (g *Game) DrawTiles() {
+	g.DrawnTiles = nil
+	for i := 0; i < g.PlayerCount; i++ {
+		g.DrawnTiles.Dominos = append(g.DrawnTiles.Dominos, g.TileDeck.DrawDomino(0))
+	}
 }
 
 func (g *Game) AddPlayer(name string) {
@@ -99,6 +114,6 @@ func (g *Game) SortPlayerOrder() {
 	})
 }
 
-func (g *Game) SetActivePlayer() {
+func (g *Game) NextPlayer() {
 	g.ActivePlayer = g.Players[g.PlayerTurnCount%g.PlayerCount]
 }

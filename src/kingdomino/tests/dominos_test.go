@@ -9,7 +9,7 @@ func TestShuffleDeck(t *testing.T) {
 
 	var newDeck = kd.NewDeck()
 
-	var shuffledDeck = kd.ShuffleDeck(newDeck)
+	newDeck.ShuffleDeck()
 
 	var expectedSumOfDominoValues = ((kd.TOTAL_TILES * (kd.TOTAL_TILES + 1)) / 2)
 
@@ -21,11 +21,15 @@ func TestShuffleDeck(t *testing.T) {
 		return total
 	}
 
-	var actualSumOfDominoValues = calcDeckValue(shuffledDeck)
+	var actualSumOfDominoValues = calcDeckValue(newDeck.Dominos)
 
 	isvalid := expectedSumOfDominoValues == actualSumOfDominoValues
 
 	if !isvalid {
 		t.Errorf("ShuffleDeck() result produced incorrect card value sum. Expected %d : Actual %d", expectedSumOfDominoValues, actualSumOfDominoValues)
 	}
+}
+
+func TestDeckSort(t *testing.T) {
+	var 
 }

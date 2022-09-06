@@ -22,7 +22,7 @@ func main() {
 			continue
 		}
 		fmt.Printf("Listening at %s\n", addr)
-		log.Fatal(http.Serve(listener, logger(http.FileServer(http.Dir(".")))))
+		log.Fatal(http.Serve(listener, logger(http.FileServer(http.Dir("web/")))))
 	}
 }
 
