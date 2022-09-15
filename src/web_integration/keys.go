@@ -1,4 +1,4 @@
-package keys
+package main
 
 const KEY_CANCEL int = 3
 const KEY_HELP int = 6

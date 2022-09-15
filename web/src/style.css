@@ -104,3 +104,93 @@
     height: 70px;
     width: 70px;
 }
+
+.active_tile_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 140px);
+    column-gap: 12px;
+    row-gap: 12px;
+}
+
+.active_tile_cell {
+    flex: 0 0 32%;
+    height: 140px;
+    width: 140px;
+    transform: rotate(0deg);
+}
+
+.active_tile_orientation {
+    margin: auto;
+    flex: 0 0 32%;
+    height: 80px;
+    width: 80px;
+}
+
+.active_tile_orientation.north {
+    margin: auto 0 0 22%;
+}
+
+.active_tile_orientation.east {
+    margin: 25% auto 0 0;
+    padding-top: 10%;
+}
+
+.active_tile_orientation.east div {
+    float: left;
+}
+
+.active_tile_orientation.south {
+    margin: 0 auto 0 22%;
+}
+
+.active_tile_orientation.west {
+    margin: 25% 0 0 auto;
+    padding-top: 10%;
+}
+
+.active_tile_orientation.west div {
+    float: right;
+}
+
+.active_tilespace div {
+    margin: auto;
+    height: 140px;
+    width: 70px;
+}
+
+.spacer {
+    flex: 0 0 32%;
+    height: 140px;
+    width: 140px;
+    visibility: hidden;
+}
+
+.mini_tile {
+    height: 35px;
+    width: 35px;
+    margin: auto;
+}
+
+.mini_tile.pasture {
+    background-color: var(--pasture-green);
+}
+
+.mini_tile.wheat {
+    background-color: var(--wheat-gold);
+}
+
+.mini_tile.lake {
+    background-color: var(--lake-blue);
+}
+
+.mini_tile.mine {
+    background-color: var(--mine-gray);
+}
+
+.mini_tile.forest {
+    background-color: var(--forest-green);
+}
+
+.mini_tile.swamp {
+    background-color: var(--swamp-brown);
+}

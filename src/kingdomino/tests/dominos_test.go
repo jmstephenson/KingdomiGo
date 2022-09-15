@@ -31,5 +31,5 @@ func TestShuffleDeck(t *testing.T) {
 }
 
 func TestDeckSort(t *testing.T) {
-	var 
+	return
 }

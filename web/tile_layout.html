@@ -1,0 +1,61 @@
+<!doctype html>
+<!--
+Copyright 2018 The Go Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>KingdomiGo</title>
+        <link rel="stylesheet" href="src/style.css">
+        <link rel="stylesheet" href="src/palette.css">
+
+        <script src="src/wasm_exec.js"></script>
+        <script>
+            if (!WebAssembly.instantiateStreaming) { // polyfill
+                WebAssembly.instantiateStreaming = async (resp, importObject) => {
+                    const source = await (await resp).arrayBuffer();
+                    return await WebAssembly.instantiate(source, importObject);
+                };
+            }
+    
+            const go = new Go();
+            let mod, inst;
+            WebAssembly.instantiateStreaming(fetch("build/main.wasm"), go.importObject).then((result) => {
+                mod = result.module;
+                inst = result.instance;
+                  run();
+            }).catch((err) => {
+                console.error(err);
+            });
+    
+            async function run() {
+                console.clear();
+                await go.run(inst);
+                inst = await WebAssembly.instantiate(mod, go.importObject); // reset instance
+            }
+        </script>
+    </head>
+
+    <body>
+        
+    
+        <div class="active_tile_grid">
+            <div class="spacer">item</div>
+            <div class="placeholder active_tile_orientation">north</div>
+            <div class="spacer">item</div>
+            <div class="placeholder active_tile_orientation">west</div>
+            <div class="active_tile_cell">
+                <div class="active_tilespace placeholder">TILE</div>
+            </div>
+            <div class="placeholder active_tile_orientation">east</div>
+            <div class="spacer">item</div>
+            <div class="placeholder active_tile_orientation">south</div>
+            <div class="spacer">item</div>
+        </div>
+
+    </body>
+
+</html>

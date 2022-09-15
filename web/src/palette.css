@@ -1,4 +1,11 @@
 :root {
     --placeholder-fill-grey: rgba(116, 116, 116, 0.35);
     --placeholder-border-grey: rgba(54, 54, 54, 0.55);
+
+    --pasture-green: #6ab051;
+    --wheat-gold: #f0d351;
+    --lake-blue: #218fd9;
+    --mine-gray: #a1998f;
+    --forest-green: #266912;
+    --swamp-brown: #45392b;
 }   

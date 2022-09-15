@@ -9,11 +9,30 @@ import (
 
 var HumanButtons = map[int]bool{}
 
+type Phase int
+
 const (
-	SETUP       = iota
-	TILE_PLACE  = iota
-	TILE_SELECT = iota
+	SETUP       Phase = 1
+	TILE_PLACE  Phase = 2
+	TILE_SELECT Phase = 3
 )
+
+type GamePhases struct {
+	SETUP       Phase
+	TILE_PLACE  Phase
+	TILE_SELECT Phase
+}
+
+func newGamePhases() *GamePhases {
+	gp := new(GamePhases)
+	gp.SETUP = SETUP
+	gp.TILE_PLACE = TILE_PLACE
+	gp.TILE_SELECT = TILE_SELECT
+
+	return gp
+}
+
+var Phases = newGamePhases()
 
 type Game struct {
 	Height int
@@ -28,7 +47,7 @@ type Game struct {
 	DrawnTiles    *kd.Deck
 	RevealedTiles *kd.Deck
 
-	Phase GamePhase
+	Phase Phase
 }
 
 type Player struct {
@@ -48,7 +67,17 @@ func NewPlayer(name string) *Player {
 	return p
 }
 
-type GamePhase struct {
+func NewGame(width, height int, players []string) *Game {
+	g := new(Game)
+	g.Phase = Phases.SETUP
+
+	g.Init(width, height)
+
+	for _, p := range players {
+		g.AddPlayer(p)
+	}
+
+	return g
 }
 
 func (g *Game) Init(width, height int) {

@@ -44,6 +44,39 @@ license that can be found in the LICENSE file.
         <div class="flex-container-row tablespace">
             <!-- tiles -->
             <div class="flex-container-col">
+                <div class="deckrow">
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="flex-container-col active_piece">
+                    <div class="active_tile_grid">
+                        <div class="spacer">item</div>
+                        <div class="placeholder active_tile_orientation north">
+                            <div class="mini_tile forest">top</div>
+                            <div class="mini_tile lake">bottom</div>
+                        </div>
+                        <div class="spacer">item</div>
+                        <div class="placeholder active_tile_orientation west">
+                            <div class="mini_tile swamp">left</div>
+                            <div class="mini_tile mine">right</div>
+                        </div>
+                        <div class="active_tilespace active_tile_cell">
+                            <div class="placeholder">TILE</div>
+                        </div>
+                        <div class="placeholder active_tile_orientation east">
+                            <div class="mini_tile wheat">top</div>
+                            <div class="mini_tile pasture">bottom</div>
+                        </div>
+                        <div class="spacer">item</div>
+                        <div class="placeholder active_tile_orientation south">
+                            <div class="mini_tile mine">left</div>
+                            <div class="mini_tile lake">right</div>
+                        </div>
+                        <div class="spacer">item</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-container-col">
                 <div class="flex-container-row deckrow">
                     <div class="placeholder portrait_tile tile_back" id="domino_deck"> deck of cards </div>
                     <div class="placeholder portrait_tile tile_back" id="draw_tile_1"> card 1 </div>
@@ -86,12 +119,13 @@ license that can be found in the LICENSE file.
                     <div class="placeholder" id="active_player_space_25"> 25 </div>
                 </div>
             </div>
+
             <!-- player boards -->
             <div class="flex-container-col playerboards">
-                <div class="placeholder" id="alt_player_1"> space 1 </div>
-                <div class="placeholder" id="alt_player_2"> space 2 </div>
-                <div class="placeholder" id="alt_player_3"> space 3 </div>
-                <div class="placeholder" id="alt_player_4"> space 4 </div>
+                <div class="placeholder" id="alt_player_1"> Player 1 </div>
+                <div class="placeholder" id="alt_player_2"> Player 2 </div>
+                <div class="placeholder" id="alt_player_3"> Player 3 </div>
+                <div class="placeholder" id="alt_player_4"> Player 4 </div>
             </div>
         </div>
     </body>
